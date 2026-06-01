@@ -4,15 +4,17 @@ import { CATEGORIES } from '../data/dummy-data';
 
 export const CategoriesScreen = ({ navigation }) => {
 
-    const pressHandler = () => {
-        navigation.navigate('MealsOverview')
+    const pressHandler = (itemData) => {
+        navigation.navigate('MealsOverview', {
+            categoryId: itemData.item.id
+        })
     }
 
     const renderCategoryItem = itemData => {
         return <CategoryGridTile 
             title={itemData.item.title} 
             color={itemData.item.color} 
-            onPress={pressHandler}/>
+            onPress={() => pressHandler(itemData)}/>
     }
 
     return (
