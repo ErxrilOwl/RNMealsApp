@@ -18,7 +18,7 @@ export const MealDetailScreen = ({ route, navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => {
-                return <Button title='Tap Me' onPress={headerButtonPressHandler} />
+                return <IconButton icon="star" color="white" onPress={headerButtonPressHandler} />
             }
         })
     }, [navigation])
