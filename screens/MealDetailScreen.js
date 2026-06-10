@@ -5,10 +5,23 @@ import { MEALS } from "../data/dummy-data";
 import { MealDetails } from "../components/MealDetails";
 import { Subtitle } from "../components/MealDetail/Subtitle";
 import { List } from "../components/MealDetail/List";
+import { useLayoutEffect } from "react";
 
-export const MealDetailScreen = ({ route }) => {
+export const MealDetailScreen = ({ route, navigation }) => {
     const mealId = route.params.mealId;
     const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
+    const headerButtonPressHandler = () => {
+
+    }
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => {
+                return <Button title='Tap Me' onPress={headerButtonPressHandler} />
+            }
+        })
+    }, [navigation])
 
     return (
         <ScrollView style={styles.rootContainer}>
