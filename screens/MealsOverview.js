@@ -5,8 +5,8 @@ import { MealItem } from "../components/MealItem";
 import { useLayoutEffect } from "react";
 
 export const MealsOverviewScreen = ({ route, navigation }) => {
-    const route = useRoute();
-    const catId = route.params.categoryId;
+    const router = useRoute();
+    const catId = router.params.categoryId;
 
     const displayedMeals = MEALS.filter((mealItem) => {
         return mealItem.categoryIds.indexOf(catId) >= 0;
